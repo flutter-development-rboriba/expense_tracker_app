@@ -36,13 +36,18 @@ class _ExpensesState extends State<Expenses> {
   }
 
   void _removeExpense(Expense expense) {
+    final expenseIndex = _registeredExpenses.indexOf(expense);
+
     setState(() {
       _registeredExpenses.remove(expense);
     });
+
+    // ScaffoldMessenger.of(context).clearSnackBars();
   }
 
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
+      isScrollControlled: false, // If want full screen feature change to true
       context: context,
       builder: (ctx) => NewExpense(onAddExpense: _addExpense),
     );
