@@ -279,8 +279,19 @@ class _NewExpenseState extends State<NewExpense> {
                           });
                         },
                       ),
+                      const Spacer(),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text('Cancel'),
+                      ),
+                      ElevatedButton(
+                        onPressed: _submitExpenseData,
+                        child: const Text('Save Expense'),
+                      )
                     ],
-                  )
+                  ),
               ],
             ),
           ),
