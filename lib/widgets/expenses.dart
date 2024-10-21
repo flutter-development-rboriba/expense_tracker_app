@@ -62,9 +62,13 @@ class _ExpensesState extends State<Expenses> {
     );
   }
 
-  void _openAddExpenseOverlay() {
+  void _openAddExpenseOverlay(double width) {
+    // Determine the value of isScrollControlled based on the screen width
+    final bool isScrollControlled = width >= 600;
+
     showModalBottomSheet(
-      isScrollControlled: false, // If want full screen feature change to true
+      useSafeArea: true,
+      isScrollControlled: isScrollControlled,
       context: context,
       builder: (ctx) => NewExpense(onAddExpense: _addExpense),
     );
@@ -94,7 +98,7 @@ class _ExpensesState extends State<Expenses> {
           backgroundColor: const Color.fromARGB(93, 140, 128, 22),
           actions: [
             IconButton(
-              onPressed: _openAddExpenseOverlay,
+              onPressed: () => _openAddExpenseOverlay(width),
               icon: const Icon(Icons.add),
             )
           ],
