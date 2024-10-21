@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:expense_tracker_app/widgets/expenses.dart';
 
@@ -12,7 +13,14 @@ var kDarkColorScheme = ColorScheme.fromSeed(
 );
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]).then((fn) {
+    runApp(const MyApp());
+  });
+
+  // runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
