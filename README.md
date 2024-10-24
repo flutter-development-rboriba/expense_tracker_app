@@ -1,5 +1,7 @@
 # expense_tracker_app
 
+![Expense Tracker App](./expense_tracker_app.gif)
+
 A new Flutter project.
 
 ## Getting Started
